@@ -49,7 +49,7 @@ class mailman::params {
       $wrapper_dir   = "${exec_prefix}/mail"
       $bin_dir       = "${prefix}/bin"
       $scripts_dir   = "${prefix}/scripts"
-      if ($::operatingsystem=='Fedora') and ($::operatingsystemmajrelease==19){
+      if (($::operatingsystem=='Fedora') and ("$::operatingsystemmajrelease"=="19")) or (($::operatingsystem=='RedHat') and ("$::operatingsystemmajrelease"=="7")){
         $template_dir  = '/etc/mailman/templates'
       } else {
         $template_dir  = "${prefix}/templates"
